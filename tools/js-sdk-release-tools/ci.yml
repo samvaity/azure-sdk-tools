@@ -51,6 +51,11 @@ extends:
                 versionSpec: '$(NodeVersion)'
               displayName: 'Install Node.js'
 
+            - task: npmAuthenticate@0
+              inputs:
+                workingFile: $(System.DefaultWorkingDirectory)/tools/js-sdk-release-tools/.npmrc
+              displayName: 'Authenticate npm'
+
             - script: |
                 npm install
               displayName: 'npm install'
